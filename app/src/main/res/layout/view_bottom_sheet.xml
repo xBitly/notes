@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_bottom_sheet">
+    <ImageButton
+        android:id="@+id/button_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_close"
+        android:background="@drawable/background_button_white"/>
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/button_close"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:text="@string/nfc_share"
+        android:fontFamily="@font/source_code_pro_medium"/>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_close"
+        android:layout_margin="30dp"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        tools:text="@string/lean"
+        android:fontFamily="@font/source_code_pro_medium"/>
+</RelativeLayout>

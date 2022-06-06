@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white">
+
+    <ImageButton
+        android:id="@+id/button_sort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_sort_ddesc"
+        android:background="@drawable/background_button_white"/>
+
+    <ImageButton
+        android:id="@+id/button_change_theme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_toStartOf="@id/button_sort"
+        android:background="@drawable/background_button_white"
+        android:padding="10dp"
+        android:src="@drawable/ic_black_theme" />
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/button_sort"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:text="@string/app_name"
+        android:fontFamily="@font/source_code_pro_medium"/>
+
+    <ImageView
+        android:id="@+id/image_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/button_sort"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_search" />
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:layout_below="@id/image_search"
+        android:layout_marginTop="-1.5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_toStartOf="@+id/image_search"
+        android:background="@drawable/background_line_black"/>
+
+    <EditText
+        android:id="@+id/edit_text_search"
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:layout_above="@+id/view_line"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toStartOf="@+id/image_search"
+        android:background="@color/white"
+        android:hint="@string/search_text"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textColorHighlight="@color/grey"
+        android:textColorHint="@color/grey"
+        android:textCursorDrawable="@drawable/background_cursor"
+        android:textSize="16sp"
+        android:focusable="false"/>
+
+    <TextView
+        android:id="@+id/text_not_found"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/relative_bottom"
+        android:layout_below="@id/image_search"
+        android:layout_margin="30dp"
+        android:textColor="@color/grey"
+        android:textSize="16sp"
+        android:text="@string/not_found"
+        android:gravity="center" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/relative_bottom"
+        android:layout_below="@id/view_line"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:scrollbars="none"
+        android:overScrollMode="never">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:background="@color/grey20"
+                tools:itemCount="5"
+                tools:listitem="@layout/view_note"/>
+        </androidx.cardview.widget.CardView>
+    </androidx.core.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:id="@+id/relative_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp">
+
+        <RelativeLayout
+            android:id="@+id/button_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/background_button_red"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="10dp">
+            <ImageView
+                android:id="@+id/image_create"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/text_new"
+                android:src="@drawable/ic_create" />
+            <TextView
+                android:id="@+id/text_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="5dp"
+                android:text="@string/new_"
+                android:textColor="@color/red"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/text_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_code_pro_medium"
+            android:textColor="@color/grey"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

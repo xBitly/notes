@@ -1,0 +1,33 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">notes</string>
+    <string name="by_xbitly">by xBitly</string>
+    <string name="next">next</string>
+    <string name="new_">new</string>
+    <string name="hello" tools:ignore="TypographyEllipsis">hello, this is notes...</string>
+    <string name="try_out">try out all the best features in this app</string>
+    <string name="best_features">best features</string>
+    <string name="search_text">search text</string>
+    <string name="note_">note</string>
+    <string name="notes_">notes</string>
+    <string name="untitled">untitled</string>
+    <string name="genial_title">genial title</string>
+    <string name="save">save</string>
+    <string name="delete">delete</string>
+    <string name="no_less_genial_text" tools:ignore="TypographyEllipsis">no less genial text...</string>
+    <string name="word_">word</string>
+    <string name="words_">words</string>
+    <string name="not_found" tools:ignore="TypographyEllipsis">no notes found...</string>
+    <string name="by_date">by date</string>
+    <string name="white_theme">white theme</string>
+    <string name="rate_the_app">rate the app</string>
+    <string name="developer">developer</string>
+    <string name="nfc_receiving">NFC receiving</string>
+    <string name="the_note_has_been_deleted">deleted</string>
+    <string name="undo">undo</string>
+    <string name="the_note_will_be_deleted">the note will be deleted</string>
+    <string name="cancel">cancel</string>
+    <string name="share">share</string>
+    <string name="nfc_share">NFC share</string>
+    <string name="lean">lean the phone against the recipient\'s device</string>
+    <string name="recipient">recipient\'s</string>
+</resources>
