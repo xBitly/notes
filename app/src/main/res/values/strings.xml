@@ -27,6 +27,7 @@
     <string name="the_note_will_be_deleted">the note will be deleted</string>
     <string name="cancel">cancel</string>
     <string name="share">share</string>
+    <string name="edit">edit</string>
     <string name="nfc_share">NFC share</string>
     <string name="lean">lean the phone against the recipient\'s device</string>
     <string name="recipient">recipient\'s</string>

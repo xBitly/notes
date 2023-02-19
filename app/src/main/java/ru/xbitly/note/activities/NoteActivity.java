@@ -10,11 +10,13 @@ import android.graphics.drawable.InsetDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.method.KeyListener;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -35,11 +37,13 @@ public class NoteActivity extends AppCompatActivity {
 
     private EditText editTextTitle, editText;
     private RelativeLayout buttonSave, buttonDelete;
-    private TextView textViewCount;
+    private TextView textViewCount, textViewButtonSave;
+    private ImageView imageViewButtonSave;
     private Note note;
 
     private String titleOld, textOld;
     private boolean flag = true;
+    private boolean flag_edit = false;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -66,6 +70,8 @@ public class NoteActivity extends AppCompatActivity {
         buttonSave = findViewById(R.id.button_save);
         buttonDelete = findViewById(R.id.button_delete);
         textViewCount = findViewById(R.id.text_count);
+        textViewButtonSave = findViewById(R.id.text_save);
+        imageViewButtonSave = findViewById(R.id.image_save);
         ImageButton buttonBack = findViewById(R.id.button_back);
 
         if (note != null){
@@ -123,7 +129,28 @@ public class NoteActivity extends AppCompatActivity {
             }
         };
 
-        buttonSave.setOnClickListener(view -> onBackPressed());
+        KeyListener editTextKeyListener = editText.getKeyListener();
+        KeyListener editTextTitleKeyListener = editTextTitle.getKeyListener();
+
+        if (editText.getText().toString().equals(textOld) && editTextTitle.getText().toString().equals(titleOld) && !editText.getText().toString().isEmpty()) {
+            textViewButtonSave.setText(getResources().getString(R.string.edit));
+            imageViewButtonSave.setImageResource(R.drawable.ic_edit);
+            editText.setKeyListener(null);
+            editTextTitle.setKeyListener(null);
+            flag_edit = true;
+        }
+
+        buttonSave.setOnClickListener(view -> {
+            if(!flag_edit) {
+                onBackPressed();
+            } else {
+                textViewButtonSave.setText(getResources().getString(R.string.save));
+                imageViewButtonSave.setImageResource(R.drawable.ic_save);
+                editText.setKeyListener(editTextKeyListener);
+                editTextTitle.setKeyListener(editTextTitleKeyListener);
+                flag_edit = false;
+            }
+        });
 
         buttonDelete.setOnClickListener(view -> {
             AlertDialog.Builder dialog = new AlertDialog.Builder(NoteActivity.this);
@@ -163,9 +190,12 @@ public class NoteActivity extends AppCompatActivity {
             buttonSave.setVisibility(View.INVISIBLE);
             buttonDelete.setVisibility(View.INVISIBLE);
         } else if (editText.getText().toString().equals(textOld) && editTextTitle.getText().toString().equals(titleOld)){
-            buttonSave.setVisibility(View.INVISIBLE);
+            buttonSave.setVisibility(View.VISIBLE);
             buttonDelete.setVisibility(View.VISIBLE);
         } else {
+            textViewButtonSave.setText(getResources().getString(R.string.save));
+            imageViewButtonSave.setImageResource(R.drawable.ic_save);
+            flag_edit = false;
             buttonSave.setVisibility(View.VISIBLE);
             buttonDelete.setVisibility(View.VISIBLE);
         }

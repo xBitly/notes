@@ -163,9 +163,8 @@ public class NoteGet extends AsyncTask<Void, Void, List<Note>>{
 
                     Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout) snackbar.getView();
 
-                    TextView textView = layout.findViewById(R.id.snackbar_text);
-                    textView.setVisibility(View.INVISIBLE);
-                    @SuppressLint("InflateParams") View snackView = LayoutInflater.from(context).inflate(R.layout.view_snackbar, null);
+                    @SuppressLint("InflateParams")
+                    View snackView = LayoutInflater.from(context).inflate(R.layout.view_snackbar, null);
 
                     RelativeLayout buttonUndo = snackView.findViewById(R.id.button_undo);
                     buttonUndo.setOnClickListener(v -> {

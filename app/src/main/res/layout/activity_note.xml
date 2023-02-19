@@ -33,8 +33,7 @@
         android:textColorHighlight="@color/grey"
         android:textColorHint="@color/grey"
         android:textCursorDrawable="@drawable/background_cursor"
-        android:textSize="24sp"
-        android:focusable="false"/>
+        android:textSize="24sp"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -60,8 +59,7 @@
             android:gravity="start"
             android:textColorHint="@color/grey"
             android:textCursorDrawable="@drawable/background_cursor"
-            android:textSize="16sp"
-            android:focusable="false"/>
+            android:textSize="16sp"/>
     </ScrollView>
 
     <RelativeLayout
